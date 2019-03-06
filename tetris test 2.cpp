@@ -37,17 +37,11 @@ int main()
 
 	srand(time(NULL));
 	setlocale(LC_ALL, ".866");
-	
 
-
-	
 	CreateVertical();
-	cout << endl << endl;
+	cout <<  endl;
 	CreateHorizontal();
 	
-	
-
-
 }
 
 
@@ -103,7 +97,42 @@ FigureCreateHorizontal:
 	return 0;
 
 }
+int ClearFigureHorizontal(int fig2[][3], int ROW, int COL)
+{
+	for (int i = 0; i < ROW; i++) // зачистка массива для фигуры (горизонтальная фигура)
+	{
+		for (int j = 0; j < COL; j++)
+		{
+			fig2[i][j] = -1;
+		}
+	}
+	return fig2[ROW][COL];
 
+}
+bool CheckFigureHorizontal(int fig2[][3])
+{
+	if (fig2[0][0] == 1 && fig2[1][0] == 1 && fig2[0][1] == 1 && fig2[1][2] == 1) return false;
+	else if (fig2[0][0] == 1 && fig2[1][0] == 1 && fig2[1][1] == 1 && fig2[0][2] == 1) return false;
+	else if (fig2[1][0] == 1 && fig2[0][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
+	else if (fig2[0][0] == 1 && fig2[1][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
+	else if (fig2[0][0] == 1 && fig2[0][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
+
+}
+
+
+//-------------------------------------------------
+
+int ClearFigureVertical(int fig1[][2], const int ROW, const int COL)
+{
+	for (int i = 0; i < ROW; i++) // зачистка массива для фигуры (вертикальная фигура)
+	{
+		for (int j = 0; j < COL; j++)
+		{
+			fig1[i][j] = -1;
+		}
+	}
+	return fig1[ROW][COL];
+}
 int CreateVertical()
 {
 FigureCreateVertical:
@@ -154,39 +183,6 @@ FigureCreateVertical:
 	}
 	return 0;
 }
-
-//-------------------------------------------------
-
-int ClearFigureVertical(int fig1[][2], const int ROW, const int COL)
-{
-	for (int i = 0; i < ROW; i++) // зачистка массива для фигуры (вертикальная фигура)
-	{
-		for (int j = 0; j < COL; j++)
-		{
-			fig1[i][j] = -1;
-		}
-	}
-	return fig1[ROW][COL];
-}
-
-int ClearFigureHorizontal(int fig2[][3], int ROW, int COL)
-{
-	for (int i = 0; i < ROW; i++) // зачистка массива для фигуры (горизонтальная фигура)
-	{
-		for (int j = 0; j < COL; j++)
-		{
-			fig2[i][j] = -1;
-		}
-	}
-	return fig2[ROW][COL];
-
-}
-
-
-
-
-//------------------------------------------------
-
 bool CheckFigureVertical(int fig1[][2])
 {
 	if (fig1[0][0] == 1 && fig1[0][1] == 1 && fig1[1][0] == 1 && fig1[2][1] == 1) return false;
@@ -196,17 +192,6 @@ bool CheckFigureVertical(int fig1[][2])
 	else if (fig1[0][1] == 1 && fig1[0][1] == 1 && fig1[2][0] == 1 && fig1[2][1] == 1) return false;
 
 }
-
-bool CheckFigureHorizontal(int fig2[][3])
-{
-	if (fig2[0][0] == 1 && fig2[1][0] == 1 && fig2[0][1] == 1 && fig2[1][2] == 1) return false;
-	else if (fig2[0][0] == 1 && fig2[1][0] == 1 && fig2[1][1] == 1 && fig2[0][2] == 1) return false;
-	else if (fig2[1][0] == 1 && fig2[0][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
-	else if (fig2[0][0] == 1 && fig2[1][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
-	else if (fig2[0][0] == 1 && fig2[0][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
-
-}
-
 
 
 
