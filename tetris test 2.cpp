@@ -90,11 +90,11 @@ FigureCreateHorizontal:
 		{
 			if (figure2[i][j] == 1)
 			{
-				cout << char(219);
+				cout << char(254);
 			}
 			else if (figure2[i][j] == -1)
 			{
-				cout << "0";
+				
 			}
 		}
 		cout << endl; 
@@ -143,7 +143,7 @@ FigureCreateVertical:
 		{
 			if (figure1[i][j] == 1)
 			{
-				cout << char(219);
+				cout << char(254);
 			}
 			else if (figure1[i][j] == -1)
 			{
@@ -206,5 +206,8 @@ bool CheckFigureHorizontal(int fig2[][3])
 	else if (fig2[0][0] == 1 && fig2[0][1] == 1 && fig2[0][2] == 1 && fig2[1][2] == 1) return false;
 
 }
+
+
+
 
 
