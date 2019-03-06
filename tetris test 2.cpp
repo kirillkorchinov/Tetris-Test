@@ -1,18 +1,3 @@
-﻿#include "pch.h"
-#include <iostream>
-#include <time.h>
-#include <math.h>
-#include <conio.h>
-#include "windows.h"
-#include <cstdlib> 
-using namespace std;
-
-const int ROW = 3;
-const int COL = 2;
-int figure1[ROW][COL];
-int ClearFigure(int figure[][COL], const int ROW, const int COL);
-bool CheckFigure(int fig[][COL]);
-
 int main()
 {
 
@@ -24,65 +9,64 @@ int main()
 
 	for (int m = 0; m < 5; m++)
 	{
-	FigureCreate:
-		ClearFigure(figure1, 3, 2);
-
-		int n = 4;
-		for (int i = 0; i < n; i++) // "создание" фигуры
-		{
-
-			int x = 0; int y = 0;
-			x = rand() % 3;
-			y = rand() % 2;
-			if (figure1[x][y] != -1)
-			{
-				n++;
-			}
-			else
-			{
-				figure1[x][y] = 1;
-
-			}
-		}
-
-
-		if (CheckFigure(figure1) == false) // проверка на исключение и переделывание фигуры
-		{
-			ClearFigure(figure1, 3, 2);
-			goto FigureCreate;
-		}
-		cout << endl << endl;
-		cout << "the shown figure: " << endl << endl;
-		for (int i = 0; i < ROW; i++)		// Вывод фигуры
-		{
-			for (int j = 0; j < COL; j++)
-			{
-				if (figure1[i][j] == 1)
-				{
-					cout << char(219);
-				}
-				else if (figure1[i][j] == -1)
-				{
-
-				}
-			}
-			cout << endl;
-		}
-
+		CreateVertical();
 	}
-	
-	//______________________________________________________________________________________________________________
-
-	cout << endl;
-	//______________________________________________________________________________________________________________
-
-	cout << endl << endl << "_______________________________________________" << endl;
-
-
+//______________________________________________________________________________________________________________
+//______________________________________________________________________________________________________________
 
 
 }
 
+int CreateVertical()
+{
+FigureCreate:
+	ClearFigure(figure1, 3, 2);
+
+	int n = 4;
+	for (int i = 0; i < n; i++) // "создание" фигуры
+	{
+
+		int x = 0; int y = 0;
+		x = rand() % 3;
+		y = rand() % 2;
+		if (figure1[x][y] != -1)
+		{
+			n++;
+		}
+		else
+		{
+			figure1[x][y] = 1;
+
+		}
+	}
+
+
+	if (CheckFigure(figure1) == false) // проверка на исключение и переделывание фигуры
+	{
+		ClearFigure(figure1, 3, 2);
+		goto FigureCreate;
+	}
+	cout << endl << endl;
+
+	cout << "the shown figure: " << endl << endl;
+
+	for (int i = 0; i < ROW; i++)		// Вывод фигуры
+	{
+		for (int j = 0; j < COL; j++)
+		{
+			if (figure1[i][j] == 1)
+			{
+				cout << char(219);
+			}
+			else if (figure1[i][j] == -1)
+			{
+
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}
 
 int ClearFigure(int figure[][COL], const int ROW, const int COL)
 {
@@ -106,6 +90,3 @@ bool CheckFigure(int fig[][COL])
 	else if (fig[0][1] == 1 && fig[0][1] == 1 && fig[2][0] == 1 && fig[2][1] == 1) return false;
 
 }
-
-
-
